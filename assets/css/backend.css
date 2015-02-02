@@ -1,0 +1,7 @@
+.background_image { height:auto; min-height:72px; }
+.tl_short{width: 140px;}
+.tl_long{width: 460px;}
+.tl_mobileImageWizard .styled_select{line-height: 19px!important;}
+.tl_mobileImageWizard_wrapper span{display: inline-block;font-weight: bold;}
+.tl_mobileImageWizard select,.tl_mobileImageWizard_wrapper span:first-child{margin-right: 5px;}
+.tl_mobileImageWizard_wrapper span:nth-child(2){margin-right: 10px;}
