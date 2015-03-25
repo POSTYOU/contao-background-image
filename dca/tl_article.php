@@ -49,7 +49,7 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePos'] = array
 $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePos2'] = array
 (
     'label'				=> " ",
-    'default'			=> "",
+//    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
     'options_callback' =>  array("my_tl_article","getPosOptns2"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'w50 tl_new_short tl_scnd_short'),
@@ -85,7 +85,7 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePosTXT'] = array
 $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageRepeat'] = array
 (
     'label'				=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'],
-    'default'			=> "",
+//    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
     'options_callback' =>  array("my_tl_article","getRepeatOptns"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
@@ -105,7 +105,7 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageRepeat'] = array
 $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageAttachment'] = array
 (
     'label'				=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'],
-    'default'			=> "",
+//    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
     'options_callback' =>  array("my_tl_article","getAttachmentOptns"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
