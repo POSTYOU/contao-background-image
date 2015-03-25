@@ -7,7 +7,7 @@ usage:
 
 "require": {
 
-        "postyou/background-image": "dev-master"
+        "postyou/background-image": "~1.0"
 },
 
 
