@@ -14,7 +14,7 @@ $GLOBALS['TL_LANG']['tl_article']['backgroundImagePosTXT'][1]= "Geben sie hier d
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'][0]= "Repeat";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'][1]= "Background-repeat Wert";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'][0]= "Attachment";
-$GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'][1]= "Wasserzeicheneffekt";
+$GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'][1]= "Hintergrundfixierung";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImagePos'][0]= "Position (Auswahl)";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImagePos'][1]= "Wählen sie die Postition des Hindergrundes aus";
 ?>
