@@ -45,9 +45,27 @@ class MobileImageWizard extends \Widget{
     {
 
 
-                echo"<script >
+                echo"<script>
 
+window.addEvent('domready', function() {
+   new Sortables('#ctrl_imageList', {
+            contstrain: true,
+            opacity: 0.2,
+            handle: '.drag-handle'
+        });
+  });
 
+//window.onload = function() {
+// alert(\"helo\");
+//}
+//$( document ).ready(function() {
+//    alert(\"helo\");
+//    new Sortables('#ctrl_imageList', {
+//            contstrain: true,
+//            opacity: 0.6,
+//            handle: '.drag-handle'
+//        });
+//});
     /**
      * List wizard
      *
@@ -122,7 +140,7 @@ class MobileImageWizard extends \Widget{
         }
         new Sortables(list, {
             contstrain: true,
-            opacity: 0.6,
+            opacity: 0.4,
             handle: '.drag-handle'
         });
 
@@ -130,7 +148,7 @@ class MobileImageWizard extends \Widget{
 </script>";
 
 //        $arrButtons = array('copy', 'drag', 'up', 'down', 'delete');
-        $arrButtons = array('copy', 'delete');
+        $arrButtons = array('copy', 'delete','drag');
         $strCommand = 'cmd_' . $this->strField;
 
         // Change the order
@@ -170,7 +188,7 @@ class MobileImageWizard extends \Widget{
         // Make sure there is at least an empty array
         if (!is_array($this->varValue) || empty($this->varValue))
         {
-            $this->varValue = array(array(0,'',''));
+            $this->varValue = array(array(0,'','',''));
         }
 
 
@@ -185,7 +203,8 @@ class MobileImageWizard extends \Widget{
         $return = "<div class='tl_mobileImageWizard_wrapper'>";
         $return .= "<span class='tl_short'>".$GLOBALS['TL_LANG']['tl_settings']['column1']."</span>";
         $return .= "<span class='tl_short'>".$GLOBALS['TL_LANG']['tl_settings']['column2']."</span>";
-        $return .= "<span class='tl_long'>".$GLOBALS['TL_LANG']['tl_settings']['column3']."</span>";
+        $return .= "<span class='tl_short'>".$GLOBALS['TL_LANG']['tl_settings']['column3']."</span>";
+        $return .= "<span class='tl_short'>".$GLOBALS['TL_LANG']['tl_settings']['column4']."</span>";
         $return .= '<ul id="ctrl_'.$this->strId.'" class="tl_mobileImageWizard" data-tabindex="'.$tabindex.'">';
 // Add input fields
 
@@ -217,9 +236,9 @@ class MobileImageWizard extends \Widget{
                 }else{
 
                 $return .= '<input type="text" name="'.$this->strId .'['.$key.']['.$i.']'.'" class="';
-                if($i==2)
-                    $return .= 'tl_long" ';
-                else
+//                if($i==2)
+//                    $return .= 'tl_long" ';
+//                else
                     $return .= 'tl_short" ';
                 $return .= 'tabindex="'.$tabindex . '" value="' . specialchars($value[$i]) . '"' . $this->getAttributes() . '/> ';
             }
@@ -230,7 +249,7 @@ class MobileImageWizard extends \Widget{
                 $class = ($button == 'up' || $button == 'down') ? ' class="button-move"' : '';
                 if ($button == 'drag')
                 {
-                    $return .= \Image::getHtml('drag.gif', '', 'class="drag-handle" title="' . sprintf($GLOBALS['TL_LANG']['MSC']['move']) . '" style="top:3px;"');
+                    $return .= \Image::getHtml('drag.gif', '', 'class="drag-handle" title="'.sprintf($GLOBALS['TL_LANG']['MSC']['move']).'" style="top:3px;"');
                 }
                 else
                 {
@@ -246,9 +265,10 @@ class MobileImageWizard extends \Widget{
         }
 // Store the tab index
         \Cache::set('tabindex', $tabindex);
-        $return.="</div>";
+//        $return.="</div>";
         return $return.'
-</ul>';
+</ul></div>';
+
 
 
 

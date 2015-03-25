@@ -7,4 +7,5 @@ $GLOBALS['TL_LANG']['tl_settings']['backgroundImage_legend'] ="Hintergrundbilder
 
 $GLOBALS['TL_LANG']['tl_settings']['column1'] ="Min/Max";
 $GLOBALS['TL_LANG']['tl_settings']['column2'] ="Pixel";
-$GLOBALS['TL_LANG']['tl_settings']['column3'] ="Datei Suffix";
+$GLOBALS['TL_LANG']['tl_settings']['column3'] ="Datei Prefix";
+$GLOBALS['TL_LANG']['tl_settings']['column4'] ="Datei Postfix";

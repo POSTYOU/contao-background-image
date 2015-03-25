@@ -4,4 +4,7 @@
 .tl_mobileImageWizard .styled_select{line-height: 19px!important;}
 .tl_mobileImageWizard_wrapper span{display: inline-block;font-weight: bold;}
 .tl_mobileImageWizard select,.tl_mobileImageWizard_wrapper span:first-child{margin-right: 5px;}
-.tl_mobileImageWizard_wrapper span:nth-child(2){margin-right: 10px;}
+.tl_mobileImageWizard_wrapper span{margin-right: 10px;}
+
+.tl_new_short,.tl_new_short div{width:202px !important;}
+.tl_scnd_short{margin: 16px 5px 0px}

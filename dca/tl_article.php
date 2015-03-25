@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] =
 $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'addBackgroundImage';
 
 // add Subpalettes
-$GLOBALS['TL_DCA']['tl_article']['subpalettes']['addBackgroundImage'] = 'backgroundImageFilepath';
+$GLOBALS['TL_DCA']['tl_article']['subpalettes']['addBackgroundImage'] = 'backgroundImageFilepath,backgroundImagePos';
 
 // Add fields
 $GLOBALS['TL_DCA']['tl_article']['fields']['addBackgroundImage'] = array
@@ -33,3 +33,138 @@ $GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageFilepath'] = array
     'eval'	=> array('filesOnly'=>true, 'fieldType'=>'radio', 'extensions' =>'ico,jpg,jpeg,png,gif', 'mandatory'=>true, 'tl_class'=>'w50 background_image'),
     'sql'	=> "binary(16) NULL"
 );
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePos'] = array
+(
+    'label'				=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImagePos'],
+    'default'			=> "",
+    'inputType'			=> 'select',
+    'options_callback' =>  array("my_tl_article","getPosOptns1"),
+    'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'w50 tl_new_short'),
+    'save_callback'     => array(array("My_tl_article","saveAll")),
+    'load_callback'     => array(array("My_tl_article","loadPos1")),
+    'sql'				=> "char(255) NOT NULL default ''"
+);
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePos2'] = array
+(
+    'label'				=> " ",
+    'default'			=> "",
+    'inputType'			=> 'select',
+    'options_callback' =>  array("my_tl_article","getPosOptns2"),
+    'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'w50 tl_new_short tl_scnd_short'),
+    'load_callback'         =>array(function($varValue,$dc){
+        $fieldName="backgroundImagePos2";
+        if(isset($_POST[$fieldName]) && !empty($_POST[$fieldName]))
+            return \Input::post($fieldName);
+        elseif(isset($dc->{$fieldName}))
+            return $dc->{$fieldName};
+    }),
+    'save_callback'     => array(function($varValue,$dc){
+        return "";
+    })
+);
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImagePosTXT'] = array
+(
+    'label'	=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImagePosTXT'],
+    'inputType'			=> 'text',
+    'eval'				=> array("rgxp"=>"px","doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
+    'load_callback'         =>array(function($varValue,$dc){
+        $fieldName="backgroundImagePosTXT";
+        if(isset($_POST[$fieldName]) && !empty($_POST[$fieldName]))
+            return \Input::post($fieldName);
+        elseif(isset($dc->{$fieldName}))
+            return $dc->{$fieldName};
+    }),
+    'save_callback'     => array(function($varValue,$dc){
+        return "";
+    })
+);
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageRepeat'] = array
+(
+    'label'				=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'],
+    'default'			=> "",
+    'inputType'			=> 'select',
+    'options_callback' =>  array("my_tl_article","getRepeatOptns"),
+    'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
+    'load_callback'         =>array(function($varValue,$dc){
+        $fieldName="backgroundImageRepeat";
+        if(isset($_POST[$fieldName]) && !empty($_POST[$fieldName]))
+            return \Input::post($fieldName);
+        elseif(isset($dc->{$fieldName}))
+            return $dc->{$fieldName};
+    }),
+    'save_callback'     => array(function($varValue,$dc){
+        return "";
+    })
+
+);
+
+$GLOBALS['TL_DCA']['tl_article']['fields']['backgroundImageAttachment'] = array
+(
+    'label'				=> &$GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'],
+    'default'			=> "",
+    'inputType'			=> 'select',
+    'options_callback' =>  array("my_tl_article","getAttachmentOptns"),
+    'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
+    'load_callback'         =>array(function($varValue,$dc){
+        $fieldName="backgroundImageAttachment";
+        if(isset($_POST[$fieldName]) && !empty($_POST[$fieldName]))
+            return \Input::post($fieldName);
+        elseif(isset($dc->{$fieldName}))
+            return $dc->{$fieldName};
+    }),
+    'save_callback'     => array(function($varValue,$dc){
+        return "";
+    })
+
+);
+
+
+
+Class My_tl_article{
+//nach oben background-color (Hintergrundfarbe)
+//nach oben background-image (Hintergrundbild)
+
+    function loadPos1($varValue,$dc){
+        $out=deserialize($varValue,true);
+        $dc->backgroundImagePos2=$out[1];
+        $dc->backgroundImagePosTXT=$out[2];
+        $dc->backgroundImageRepeat=$out[3];
+        $dc->backgroundImageAttachment=$out[4];
+
+        return $out[0];
+
+    }
+
+    function saveAll($varValue,$dc){
+        $pos1=$varValue;
+        $pos2=Input::post('backgroundImagePos2');
+        $posTxt=Input::post('backgroundImagePosTXT');
+        $rep=Input::post('backgroundImageRepeat');
+        $att=Input::post('backgroundImageAttachment');
+
+        $in=array($pos1,$pos2,$posTxt,$rep,$att);
+//    var_dump($in);
+        return serialize($in);
+    }
+
+    function getRepeatOptns(){
+        return array("","repeat","repeat-x","repeat-y","no-repeat");
+    }
+    function getAttachmentOptns(){
+        return array("","scroll","fixed");
+    }
+    function getPosOptns1(){
+    return array("","center","left","right");
+}
+    function getPosOptns2(){
+        return array("","top","bottom","center");
+    }
+//nach oben background-repeat (Wiederholungs-Effekt)
+//nach oben background-attachment (Wasserzeichen-Effekt)
+//nach oben background-position (Hintergrundposition)
+
+}

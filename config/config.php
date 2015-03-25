@@ -6,8 +6,10 @@ if (TL_MODE == 'FE') {
         'parseFrontendTemplateHook'
     );
 
-    $GLOBALS['TL_HOOKS']['getContentElement'][] = array('postYou\\BackgroundImageModel', 'getContentElementHook');
+    $GLOBALS['TL_HOOKS']['getContentElement'][] = array('postyou\\BackgroundImageModel', 'getContentElementHook');
 
 }
 
 $GLOBALS['BE_FFL']['mobileImageWizard'] = 'MobileImageWizard';
+
+$GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('My_tl_content', 'myAddCustomRegexp');
