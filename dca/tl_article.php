@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_article']['palettes']['default'] =
 $GLOBALS['TL_DCA']['tl_article']['palettes']['__selector__'][] = 'addBackgroundImage';
 
 // add Subpalettes
-$GLOBALS['TL_DCA']['tl_article']['subpalettes']['addBackgroundImage'] = 'backgroundImageFilepath,backgroundImagePos';
+$GLOBALS['TL_DCA']['tl_article']['subpalettes']['addBackgroundImage'] = 'backgroundImageFilepath,backgroundImagePos,backgroundImagePos2,backgroundImagePosTXT,backgroundImageRepeat,backgroundImageAttachment';
 
 // Add fields
 $GLOBALS['TL_DCA']['tl_article']['fields']['addBackgroundImage'] = array
