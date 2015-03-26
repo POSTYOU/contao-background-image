@@ -47,7 +47,12 @@ class my_tl_settings extends tl_settings
 {
 
     public function saveList($varValue,$dc){
-        $varValue=serialize($this->sortList(unserialize($varValue)));
+        $list=unserialize($varValue);
+        $fieldNr=$GLOBALS['TL_CONFIG']['bg-image']['fieldNr'];
+        if(!empty($list) && count($list[0])<$fieldNr)
+            for($i=($fieldNr-count($list));$i<$fieldNr;$i++)
+                $list[]="";
+            $varValue=serialize($this->sortList($list));
         return $varValue;
     }
 

@@ -5,8 +5,6 @@ namespace postYou;
 
 class MobileImageWizard extends \Widget{
 
-
-    private $inputFieldsNumber=2;
     /**
      * Submit user input
      * @var boolean
@@ -186,9 +184,10 @@ window.addEvent('domready', function() {
         }
 
         // Make sure there is at least an empty array
-        if (!is_array($this->varValue) || empty($this->varValue))
+
+        if (!is_array($this->varValue) || empty($this->varValue) || count($this->varValue[0])!=$GLOBALS['TL_CONFIG']['bg-image']['fieldNr'])
         {
-            $this->varValue = array(array(0,'','',''));
+            $this->varValue=array(array_fill(0,$GLOBALS['TL_CONFIG']['bg-image']['fieldNr'],""));
         }
 
 
