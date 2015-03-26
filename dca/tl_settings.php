@@ -49,6 +49,12 @@ class my_tl_settings extends tl_settings
     public function saveList($varValue,$dc){
         $list=unserialize($varValue);
         $fieldNr=$GLOBALS['TL_CONFIG']['bg-image']['fieldNr'];
+
+        $temp=trim(implode("",array_values($list[0])));
+        if(empty($temp)){
+            return "";
+        }
+        
         if(!empty($list) && count($list[0])<$fieldNr)
             for($i=($fieldNr-count($list));$i<$fieldNr;$i++)
                 $list[]="";
