@@ -6,7 +6,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'postYou',
+	'postyou',
 ));
 
 
@@ -16,6 +16,6 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'postYou\BackgroundImageModel' => 'system/modules/background-image/classes/BackgroundImageModel.php',
-	'postYou\MobileImageWizard'            => 'system/modules/background-image/classes/MobileImageWizard.php',
+	'postyou\BackgroundImageModel' => 'system/modules/background-image/classes/BackgroundImageModel.php',
+	'postyou\MobileImageWizard'            => 'system/modules/background-image/classes/MobileImageWizard.php',
 ));
