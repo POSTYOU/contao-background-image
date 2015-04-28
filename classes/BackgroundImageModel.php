@@ -1,10 +1,10 @@
 <?php
 
 
-namespace postYou;
+namespace postyou;
 
 
-class BackgroundImageModel extends \Contao\Frontend
+class BackgroundImageModel extends \Frontend
 {
     function parseFrontendTemplateHook($strBuffer, $tmpName)
     {
