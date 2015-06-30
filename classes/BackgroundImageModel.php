@@ -13,9 +13,9 @@ class BackgroundImageModel extends \Frontend
             if (preg_match_all("/id=\"(.*)\"/", $strBuffer, $res)) {
                 if (!empty($res)) {
                     $alias = $res[1];
-
-                     $dbRes = $this->Database->prepare("SELECT id,addBackgroundImage,backgroundImageFilepath,backgroundImagePos FROM tl_article WHERE alias=? OR cssID REGEXP ?")
-                        ->execute($alias,'(a:2:{i:0;s:)[0-9]+(:")'.$alias.'(")');
+                    $alias = $res[1];
+                    $dbRes = $this->Database->prepare('SELECT id,addBackgroundImage,backgroundImageFilepath,backgroundImagePos FROM tl_article WHERE alias=? OR cssID REGEXP "(a:2:{i:0;s:)[0-9]+(:\")'.$alias[0].'(\")"')
+                        ->execute($alias[0]);
                     $dbRes = $dbRes->fetchAssoc();
                     if ($dbRes["addBackgroundImage"] == 1 && isset($dbRes["backgroundImageFilepath"])) {
                         $objFile = \FilesModel::findByPk($dbRes["backgroundImageFilepath"]);
