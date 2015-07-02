@@ -48,7 +48,7 @@ class BackgroundImageModel extends \Frontend
         if($GLOBALS['TL_CONFIG']['mobileBackgroundImage']===true)
             $resolutions=(unserialize($GLOBALS['TL_CONFIG']['imageList']));
         $path_parts = pathinfo($sourceFilePath);
-        $rID=uniqid($path_parts['filename']."_");
+        $rID=uniqid("_".$path_parts['filename']."_");
 
         $strBuffer = preg_replace("/class=\"/", "class=\" " .$rID." ", $strBuffer, 1);
         $tmpBuffer= "<style scoped='scoped' type='text/css'>\n.".$rID." {background-image:url(".$sourceFilePath.");\n";
@@ -72,7 +72,7 @@ class BackgroundImageModel extends \Frontend
 
         if(isset($resolutions) && is_array($resolutions) && !empty($resolutions)){ // mobile Versions are enabled and there is a list
             foreach($resolutions as $value) {
-
+                if(!empty($value[1])){
                 $objFile = new \File($path_parts['dirname'] . "/" . $value[2] . $path_parts['filename'] . $value[3] . "." . $path_parts['extension'],true);
                 if ($objFile->exists()){ // file exists
                     $tmpBuffer .= "\n@media screen and (";
@@ -84,6 +84,7 @@ class BackgroundImageModel extends \Frontend
                     $tmpBuffer .= "-width: " . $value[1] . "px){
                                     .".$rID." {background-image:url(" . $path_parts['dirname'] . "/" . $value[2] . $path_parts['filename'] . $value[3] . "." . $path_parts['extension'] . ")}
                                 }";
+                }
                 }
             }
 
