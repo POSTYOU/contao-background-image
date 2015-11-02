@@ -10,7 +10,7 @@
     "license": "LGPL-3.0+",
     "authors": [
         {
-            "name": "garyee",
+            "name": "Gerald Meier",
             "role": "Developer"
         },
         {
@@ -20,12 +20,11 @@
     ],
     "support": {
         "email": "kontakt@postyou.de",
-        "issues": "https://github.com/garyee/contao-background-image/issues?direction=desc&sort=created&state=open",
-        "irc": "irc://irc.freenode.org/contao.dev",
-        "source": "https://github.com/garyee/contao-background-image"
+        "issues": "https://github.com/postyou/contao-background-image/issues?direction=desc&sort=created&state=open",
+        "source": "https://github.com/postyou/contao-background-image"
     },
     "require": {
-        "php": ">=5.3.2",
+        "php": ">=5.5.0",
         "contao/core": ">=3.2,<4.0",
         "contao-community-alliance/composer-plugin": "~2.0"
 

@@ -16,7 +16,7 @@ usage:
         {
         
             "type": "vcs",
-            "url": "https://github.com/garyee/contao-background-image"
+            "url": "https://github.com/postyou/contao-background-image"
         }
 ],
     
