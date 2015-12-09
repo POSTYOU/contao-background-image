@@ -19,10 +19,9 @@ class BackgroundImageModel extends \Frontend
     function parseFrontendTemplateHook($strBuffer, $tmpName)
     {
 
-        if ($tmpName == "mod_article") {
+         if (strpos($tmpName,"mod_article")!==false) {
             if (preg_match_all("/id=\"(.*)\"/", $strBuffer, $res)) {
                 if (!empty($res)) {
-                    $alias = $res[1];
                     $alias = $res[1];
                     $dbRes = $this->Database->prepare('SELECT id,addBackgroundImage,backgroundImageFilepath,backgroundImagePos FROM tl_article WHERE alias=? OR cssID REGEXP "(a:2:{i:0;s:)[0-9]+(:\")'.$alias[0].'(\")"')
                         ->execute($alias[0]);
@@ -60,7 +59,7 @@ class BackgroundImageModel extends \Frontend
         $path_parts = pathinfo($sourceFilePath);
         $rID=uniqid("_".$path_parts['filename']."_");
 
-        $strBuffer = preg_replace("/class=\"/", "class=\" " .$rID." ", $strBuffer, 1);
+        $strBuffer = preg_replace("/class=\"/", "class=\"" .$rID." ", $strBuffer, 1);
         $tmpBuffer= "<style scoped='scoped' type='text/css'>\n.".$rID." {background-image:url(".$sourceFilePath.");\n";
         if(!empty($pos)){
 
