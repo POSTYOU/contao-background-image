@@ -24,7 +24,7 @@
         "source": "https://github.com/postyou/contao-background-image"
     },
     "require": {
-        "php": ">=5.5.0",
+        "php": ">=5.4.0",
         "contao/core": ">=3.2,<4.0",
         "contao-community-alliance/composer-plugin": "~2.0"
 
