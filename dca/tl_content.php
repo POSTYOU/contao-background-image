@@ -54,6 +54,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImagePos'] = array
 (
     'label'				=> &$GLOBALS['TL_LANG']['tl_content']['backgroundImagePos'],
     'default'			=> "",
+    'exclude'	=> true,
     'inputType'			=> 'select',
     'options_callback' =>  array("my_tl_content","getPosOptns1"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'w50 tl_new_short'),
@@ -65,6 +66,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImagePos'] = array
 $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImagePos2'] = array
 (
     'label'				=> " ",
+    'exclude'	=> true,
 //    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
     'options_callback' =>  array("my_tl_content","getPosOptns2"),
@@ -85,6 +87,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImagePosTXT'] = array
 (
     'label'	=> &$GLOBALS['TL_LANG']['tl_content']['backgroundImagePosTXT'],
     'inputType'			=> 'text',
+    'exclude'	=> true,
     'eval'				=> array("rgxp"=>"px","doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
     'load_callback'         =>array(function($varValue,$dc){
         $fieldName="backgroundImagePosTXT";
@@ -103,6 +106,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImageRepeat'] = array
     'label'				=> &$GLOBALS['TL_LANG']['tl_content']['backgroundImageRepeat'],
 //    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
+    'exclude'	=> true,
     'options_callback' =>  array("my_tl_content","getRepeatOptns"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
     'load_callback'         =>array(function($varValue,$dc){
@@ -123,6 +127,7 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['backgroundImageAttachment'] = array
     'label'				=> &$GLOBALS['TL_LANG']['tl_content']['backgroundImageAttachment'],
 //    'default'			=> "", if enabled db error when creating new
     'inputType'			=> 'select',
+    'exclude'	=> true,
     'options_callback' =>  array("my_tl_content","getAttachmentOptns"),
     'eval'				=> array("doNotSaveEmpty"=>true,'tl_class' => 'clr w50'),
     'load_callback'         =>array(function($varValue,$dc){
