@@ -160,21 +160,6 @@ function loadPos1($varValue,$dc){
 
 }
 
-    public function myAddCustomRegexp($strRegexp, $varValue, Widget $objWidget)
-    {
-        if ($strRegexp == 'px')
-        {
-            if (!preg_match('/^((\d{1,3}px) (\d{1,3}px)|(\d{1,3}%) (\d{1,3}%))$/', $varValue))
-            {
-                $objWidget->addError('Field ' . $objWidget->label . ' muss zwei Pixel oder Prozent-Werte enthalten');
-            }
-
-            return true;
-        }
-
-        return false;
-    }
-
 function saveAll($varValue,$dc){
     $pos1=$varValue;
     $pos2=Input::post('backgroundImagePos2');

@@ -103,4 +103,20 @@ class BackgroundImageModel extends \Frontend
         $strBuffer =preg_replace("/>/",">\n".$tmpBuffer,$strBuffer,1);
         return $strBuffer;
     }
+    
+    public function myAddCustomRegexp($strRegexp, $varValue, Widget $objWidget)
+    {
+        if ($strRegexp == 'px')
+        {
+            if (!preg_match('/^((\d{1,3}px) (\d{1,3}px)|(\d{1,3}%) (\d{1,3}%))$/', $varValue))
+            {
+                $objWidget->addError('Field ' . $objWidget->label . ' muss zwei Pixel oder Prozent-Werte enthalten');
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+    
 }

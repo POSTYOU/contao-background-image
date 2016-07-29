@@ -14,4 +14,4 @@ $GLOBALS['TL_CONFIG']['bg-image']['fieldNr']="4";
 
 $GLOBALS['BE_FFL']['mobileImageWizard'] = 'postyou\MobileImageWizard';
 
-$GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('My_tl_content', 'myAddCustomRegexp');
+$GLOBALS['TL_HOOKS']['addCustomRegexp'][] = array('postyou\BackgroundImageModel', 'myAddCustomRegexp');
