@@ -20,7 +20,7 @@ class BackgroundImageModel extends \Frontend
     {
 
          if (strpos($tmpName,"mod_article")!==false) {
-            if (preg_match_all("/id=\"(.*)\"/", $strBuffer, $res)) {
+            if (preg_match_all("/id=\"(.*?)\"/", $strBuffer, $res)) {
                 if (!empty($res)) {
                     $alias = $res[1];
                     $dbRes = $this->Database->prepare('SELECT id,addBackgroundImage,backgroundImageFilepath,backgroundImagePos FROM tl_article WHERE alias=? OR cssID REGEXP "(a:2:{i:0;s:)[0-9]+(:\")'.$alias[0].'(\")"')
