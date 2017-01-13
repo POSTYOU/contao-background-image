@@ -104,7 +104,7 @@ class BackgroundImageModel extends \Frontend
         return $strBuffer;
     }
     
-    public function myAddCustomRegexp($strRegexp, $varValue, Widget $objWidget)
+    public function myAddCustomRegexp($strRegexp, $varValue, \Widget $objWidget)
     {
         if ($strRegexp == 'px')
         {
