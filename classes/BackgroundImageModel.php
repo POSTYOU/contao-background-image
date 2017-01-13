@@ -25,14 +25,14 @@ class BackgroundImageModel extends \Frontend
                     $alias = $res[1];
                     
                     /* Changes */
-					/* Hotfix for a syntax error given in the variable $alias[0] */
-					if(preg_match("/\"/",$alias[0])){
-						$alias_0 = str_replace('"','\"',$alias[0]);
-					}else{
-						$alias_0 = $alias[0];
-					}
+		    /* Hotfix for a syntax error when " given in the variable $alias[0] */
+		    if(preg_match("/\"/",$alias[0])){
+			$alias_0 = str_replace('"','\"',$alias[0]);
+		    }else{
+			$alias_0 = $alias[0];
+		    }
 					
-					/* changed the variable $alias[0] to $alias_0 */
+		   /* changed the variable $alias[0] to $alias_0 */
                     $dbRes = $this->Database->prepare('SELECT id,addBackgroundImage,backgroundImageFilepath,backgroundImagePos FROM tl_article WHERE alias=? OR cssID REGEXP "(a:2:{i:0;s:)[0-9]+(:\")'.$alias_0.'(\")"')
                         ->execute($alias_0);
                                         
