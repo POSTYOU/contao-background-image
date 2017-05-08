@@ -15,6 +15,7 @@ $GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'][0]= "Repeat";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageRepeat'][1]= "Background-repeat Wert";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'][0]= "Attachment";
 $GLOBALS['TL_LANG']['tl_article']['backgroundImageAttachment'][1]= "Hintergrundfixierung";
-$GLOBALS['TL_LANG']['tl_article']['backgroundImagePos'][0]= "Position (Auswahl)";
-$GLOBALS['TL_LANG']['tl_article']['backgroundImagePos'][1]= "Wählen sie die Postition des Hindergrundes aus";
-?>
+$GLOBALS['TL_LANG']['tl_content']['backgroundImagePos'][0]= "Position - Horizontal (Auswahl)";
+$GLOBALS['TL_LANG']['tl_content']['backgroundImagePos'][1]= "Wählen sie die Positition des Hindergrundes aus";
+$GLOBALS['TL_LANG']['tl_content']['backgroundImagePos2'][0]= "Position - Vertikal (Auswahl)";
+$GLOBALS['TL_LANG']['tl_content']['backgroundImagePos2'][1]= "Wählen sie die Positition des Hindergrundes aus";
